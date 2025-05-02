@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bollywood Hungama - 2025 Movies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #0f1621;
+            --secondary: #1a2430;
+            --accent: #f5c518;
+            --text: #ffffff;
+            --text-light: #b0b0b0;
+            --hover: #2a3a4d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--text);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--accent);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--secondary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: var(--primary);
+            border-radius: 4px;
+            padding: 8px 15px;
+            width: 400px;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar:focus-within {
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: var(--text);
+            width: 100%;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+        }
+
+        .main-nav ul {
+            display: flex;
+        }
+
+        .main-nav li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .main-nav a {
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--accent);
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-actions .btn {
+            margin-left: 15px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .hero-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 80px;
+            left: 60px;
+            max-width: 600px;
+        }
+
+        .slide-content h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-content p {
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .indicator.active {
+            background-color: var(--accent);
+        }
+
+        /* Filters Section */
+        .filters {
+            background-color: var(--secondary);
+            padding: 15px 0;
+            margin-bottom: 30px;
+        }
+
+        .filter-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .filter-group {
+            position: relative;
+        }
+
+        .filter-btn {
+            background-color: var(--primary);
+            color: var(--text);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background-color: var(--hover);
+        }
+
+        .filter-btn i {
+            margin-left: 8px;
+            font-size: 18px;
+        }
+
+        .filter-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--secondary);
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            border-radius: 4px;
+            padding: 10px 0;
+            display: none;
+        }
+
+        .filter-group:hover .filter-dropdown {
+            display: block;
+        }
+
+        .filter-dropdown a {
+            display: block;
+            padding: 8px 20px;
+            color: var(--text);
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-dropdown a:hover {
+            background-color: var(--hover);
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .movies-grid {
+            flex: 3;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .movie-card {
+            background-color: var(--secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .movie-poster {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .movie-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .watchlist-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .watchlist-btn:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .watchlist-btn.active {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .movie-info {
+            padding: 15px;
+        }
+
+        .movie-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .movie-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .movie-rating {
+            display: flex;
+            align-items: center;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .movie-rating i {
+            font-size: 16px;
+            margin-right: 3px;
+        }
+
+        .movie-director {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .movie-cast {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex: 1;
+        }
+
+        .sidebar-widget {
+            background-color: var(--secondary);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .widget-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+        }
+
+        .widget-title i {
+            margin-right: 8px;
+        }
+
+        .trending-item {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .trending-item:hover {
+            opacity: 0.8;
+        }
+
+        .trending-rank {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .trending-poster {
+            width: 60px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+
+        .trending-info h4 {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .trending-info p {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .newsletter-form {
+            margin-top: 20px;
+        }
+
+        .newsletter-form input {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 4px;
+            border: none;
+            background-color: var(--primary);
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--text-light);
+        }
+
+        .newsletter-form .btn {
+            width: 100%;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .page-item {
+            margin: 0 5px;
+        }
+
+        .page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            background-color: var(--secondary);
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover, .page-link.active {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .footer-about p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow: auto;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 900px;
+            background-color: var(--secondary);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            padding: 15px 20px;
+            background-color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .trailer-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .trailer-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .search-bar {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .logo {
+                order: 1;
+            }
+            
+            .hamburger {
+                order: 2;
+                display: block;
+                margin-left: auto;
+            }
+            
+            .main-nav {
+                order: 4;
+                width: 100%;
+                margin-top: 15px;
+                display: none;
+            }
+            
+            .main-nav.active {
+                display: block;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+            }
+            
+            .main-nav li {
+                margin: 5px 0;
+            }
+            
+            .search-bar {
+                order: 3;
+                width: 100%;
+                margin: 15px 0;
+            }
+            
+            .user-actions {
+                margin-left: auto;
+                order: 2;
+            }
+            
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .hero-banner {
+                height: 400px;
+            }
+            
+            .slide-content {
+                left: 30px;
+                bottom: 60px;
+            }
+            
+            .slide-content h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-banner {
+                height: 350px;
+            }
+            
+            .slide-content {
+                left: 20px;
+                bottom: 40px;
+                max-width: 80%;
+            }
+            
+            .slide-content h2 {
+                font-size: 28px;
+            }
+            
+            .movies-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+            
+            .movie-poster {
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-banner {
+                height: 300px;
+            }
+            
+            .slide-content {
+                left: 15px;
+                bottom: 30px;
+            }
+            
+            .slide-content h2 {
+                font-size: 24px;
+            }
+            
+            .filter-container {
+                justify-content: center;
+            }
+            
+            .movies-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 15px;
+            }
+            
+            .movie-poster {
+                height: 200px;
+            }
+            
+            .movie-info {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="https://via.placeholder.com/40x40?text=BH" alt="Bollywood Hungama">
+                Bollywood Hungama
+            </a>
+            
+            <div class="hamburger">
+                <i class="material-icons">menu</i>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Celebrities</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Videos</a></li>
+                    <li><a href="#">More <i class="material-icons">arrow_drop_down</i></a></li>
+                </ul>
+            </nav>
+            
+            <div class="search-bar">
+                <i class="material-icons">search</i>
+                <input type="text" placeholder="Search movies, celebrities...">
+            </div>
+            
+            <div class="user-actions">
+                <button class="btn btn-outline">Sign In</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/1920x500?text=Singham+3')">
+            <div class="slide-content">
+                <h2>Singham 3</h2>
+                <p>Ajay Devgn returns as the fearless cop in this high-octane action thriller releasing on August 15, 2025.</p>
+                <button class="btn btn-primary watch-trailer" data-trailer="https://www.youtube.com/embed/example1">
+                    <i class="material-icons">play_arrow</i> Watch Trailer
+                </button>
+            </div>
+        </div>
+        <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/1920x500?text=Brahmastra+2')">
+            <div class="slide-content">
+                <h2>Brahmastra 2</h2>
+                <p>The saga continues in this epic fantasy adventure with Ranbir Kapoor and Alia Bhatt releasing December 25, 2025.</p>
+                <button class="btn btn-primary watch-trailer" data-trailer="https://www.youtube.com/embed/example2">
+                    <i class="material-icons">play_arrow</i> Watch Trailer
+                </button>
+            </div>
+        </div>
+        <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/1920x500?text=Don+3')">
+            <div class="slide-content">
+                <h2>Don 3</h2>
+                <p>Shah Rukh Khan returns as the iconic Don in this high-stakes crime thriller releasing November 7, 2025.</p>
+                <button class="btn btn-primary watch-trailer" data-trailer="https://www.youtube.com/embed/example3">
+                    <i class="material-icons">play_arrow</i> Watch Trailer
+                </button>
+            </div>
+        </div>
+        
+        <div class="slide-indicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters">
+        <div class="container filter-container">
+            <div class="filter-group">
+                <button class="filter-btn">
+                    All Movies <i class="material-icons">arrow_drop_down</i>
+                </button>
+                <div class="filter-dropdown">
+                    <a href="#">All Movies</a>
+                    <a href="#">Bollywood</a>
+                    <a href="#">Hollywood</a>
+                    <a href="#">South Indian</a>
+                </div>
+            </div>
+            
+            <div class="filter-group">
+                <button class="filter-btn">
+                    Release Date <i class="material-icons">arrow_drop_down</i>
+                </button>
+                <div class="filter-dropdown">
+                    <a href="#">Newest First</a>
+                    <a href="#">Oldest First</a>
+                    <a href="#">Coming Soon</a>
+                </div>
+            </div>
+            
+            <div class="filter-group">
+                <button class="filter-btn">
+                    Hindi <i class="material-icons">arrow_drop_down</i>
+                </button>
+                <div class="filter-dropdown">
+                    <a href="#">Hindi</a>
+                    <a href="#">English</a>
+                    <a href="#">Tamil</a>
+                    <a href="#">Telugu</a>
+                </div>
+            </div>
+            
+            <div class="filter-group">
+                <button class="filter-btn">
+                    Genre <i class="material-icons">arrow_drop_down</i>
+                </button>
+                <div class="filter-dropdown">
+                    <a href="#">Action</a>
+                    <a href="#">Comedy</a>
+                    <a href="#">Drama</a>
+                    <a href="#">Romance</a>
+                    <a href="#">Thriller</a>
+                </div>
+            </div>
+            
+            <div>
+                <label style="display: flex; align-items: center; cursor: pointer;">
+                    <input type="checkbox" style="margin-right: 8px;"> Upcoming Only
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container main-content">
+        <div class="movies-grid" id="moviesGrid">
+            <!-- Movie cards will be loaded here by JavaScript -->
+        </div>
+        
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="widget-title">
+                    <i class="material-icons">trending_up</i> Trending Now
+                </h3>
+                
+                <div class="trending-item">
+                    <div class="trending-rank">1</div>
+                    <img src="https://via.placeholder.com/60x80?text=S3" alt="Singham 3" class="trending-poster">
+                    <div class="trending-info">
+                        <h4>Singham 3</h4>
+                        <p>⭐ 4.5 | Aug 15, 2025</p>
+                    </div>
+                </div>
+                
+                <div class="trending-item">
+                    <div class="trending-rank">2</div>
+                    <img src="https://via.placeholder.com/60x80?text=B2" alt="Brahmastra 2" class="trending-poster">
+                    <div class="trending-info">
+                        <h4>Brahmastra 2</h4>
+                        <p>⭐ 4.8 | Dec 25, 2025</p>
+                    </div>
+                </div>
+                
+                <div class="trending-item">
+                    <div class="trending-rank">3</div>
+                    <img src="https://via.placeholder.com/60x80?text=D3" alt="Don 3" class="trending-poster">
+                    <div class="trending-info">
+                        <h4>Don 3</h4>
+                        <p>⭐ 5.0 | Nov 7, 2025</p>
+                    </div>
+                </div>
+                
+                <div class="trending-item">
+                    <div class="trending-rank">4</div>
+                    <img src="https://via.placeholder.com/60x80?text=W2" alt="War 2" class="trending-poster">
+                    <div class="trending-info">
+                        <h4>War 2</h4>
+                        <p>⭐ Coming Soon</p>
+                    </div>
+                </div>
+                
+                <div class="trending-item">
+                    <div class="trending-rank">5</div>
+                    <img src="https://via.placeholder.com/60x80?text=TvP" alt="Tiger vs Pathaan" class="trending-poster">
+                    <div class="trending-info">
+                        <h4>Tiger vs Pathaan</h4>
+                        <p>⭐ Coming Soon</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3 class="widget-title">
+                    <i class="material-icons">calendar_today</i> Coming Soon
+                </h3>
+                
+                <div class="trending-item">
+                    <img src="https://via.placeholder.com/60x80?text=W2" alt="War 2" class="trending-poster">
+                    <div class="trending-info">
+                        <h4>War 2</h4>
+                        <p>Oct 10, 2025</p>
+                    </div>
+                </div>
+                
+                <div class="trending-item">
+                    <img src="https://via.placeholder.com/60x80?text=TvP" alt="Tiger vs Pathaan" class="trending-poster">
+                    <div class="trending-info">
+                        <h4>Tiger vs Pathaan</h4>
+                        <p>Nov 12, 2025</p>
+                    </div>
+                </div>
+                
+                <div class="trending-item">
+                    <img src="https://via.placeholder.com/60x80?text=K3" alt="KGF 3" class="trending-poster">
+                    <div class="trending-info">
+                        <h4>KGF: Chapter 3</h4>
+                        <p>Aug 30, 2025</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3 class="widget-title">
+                    <i class="material-icons">email</i> Newsletter
+                </h3>
+                <p style="color: var(--text-light); margin-bottom: 15px; font-size: 14px;">
+                    Subscribe to get updates about upcoming movies, trailers, and more.
+                </p>
+                
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="material-icons">send</i> Subscribe
+                    </button>
+                </form>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Pagination -->
+    <div class="container">
+        <div class="pagination">
+            <div class="page-item">
+                <a href="#" class="page-link"><i class="material-icons">chevron_left</i></a>
+            </div>
+            <div class="page-item">
+                <a href="#" class="page-link active">1</a>
+            </div>
+            <div class="page-item">
+                <a href="#" class="page-link">2</a>
+            </div>
+            <div class="page-item">
+                <a href="#" class="page-link">3</a>
+            </div>
+            <div class="page-item">
+                <a href="#" class="page-link">4</a>
+            </div>
+            <div class="page-item">
+                <a href="#" class="page-link">5</a>
+            </div>
+            <div class="page-item">
+                <a href="#" class="page-link"><i class="material-icons">chevron_right</i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">Bollywood Hungama</div>
+                    <p>Your ultimate destination for Bollywood movies, news, celebrity updates, and entertainment.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="material-icons">facebook</i></a>
+                        <a href="#" class="social-link"><i class="material-icons">twitter</i></a>
+                        <a href="#" class="social-link"><i class="material-icons">instagram</i></a>
+                        <a href="#" class="social-link"><i class="material-icons">youtube</i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Movies</h3>
+                    <ul>
+                        <li><a href="#">Latest Releases</a></li>
+                        <li><a href="#">Upcoming Movies</a></li>
+                        <li><a href="#">Top Rated</a></li>
+                        <li><a href="#">Box Office</a></li>
+                        <li><a href="#">Movie Reviews</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Celebrities</h3>
+                    <ul>
+                        <li><a href="#">Actors</a></li>
+                        <li><a href="#">Actresses</a></li>
+                        <li><a href="#">Directors</a></li>
+                        <li><a href="#">Producers</a></li>
+                        <li><a href="#">Singers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 Bollywood Hungama. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Trailer Modal -->
+    <div class="modal" id="trailerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Movie Trailer</div>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="trailer-container">
+                    <iframe id="trailerFrame" src="" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Movie Data
+        const moviesData = [
+            {
+                id: 1,
+                title: "Singham 3",
+                poster: "https://via.placeholder.com/220x300?text=Singham+3",
+                release: "Aug 15, 2025",
+                rating: 4.5,
+                director: "Rohit Shetty",
+                cast: "Ajay Devgn, Deepika Padukone, Kareena Kapoor",
+                genre: "Action",
+                trailer: "https://www.youtube.com/embed/example1",
+                badge: "Hot"
+            },
+            {
+                id: 2,
+                title: "Brahmastra 2",
+                poster: "https://via.placeholder.com/220x300?text=Brahmastra+2",
+                release: "Dec 25, 2025",
+                rating: 4.8,
+                director: "Ayan Mukerji",
+                cast: "Ranbir Kapoor, Alia Bhatt, Amitabh Bachchan",
+                genre: "Fantasy",
+                trailer: "https://www.youtube.com/embed/example2",
+                badge: "Trending"
+            },
+            {
+                id: 3,
+                title: "Don 3",
+                poster: "https://via.placeholder.com/220x300?text=Don+3",
+                release: "Nov 7, 2025",
+                rating: 5.0,
+                director: "Farhan Akhtar",
+                cast: "Shah Rukh Khan, Priyanka Chopra",
+                genre: "Crime",
+                trailer: "https://www.youtube.com/embed/example3",
+                badge: "Most Awaited"
+            },
+            {
+                id: 4,
+                title: "War 2",
+                poster: "https://via.placeholder.com/220x300?text=War+2",
+                release: "Oct 10, 2025",
+                rating: 0,
+                director: "Siddharth Anand",
+                cast: "Hrithik Roshan, Jr. NTR",
+                genre: "Action",
+                trailer: "https://www.youtube.com/embed/example4",
+                badge: "Upcoming"
+            },
+            {
+                id: 5,
+                title: "Tiger vs Pathaan",
+                poster: "https://via.placeholder.com/220x300?text=Tiger+vs+Pathaan",
+                release: "Nov 12, 2025",
+                rating: 0,
+                director: "Maneesh Sharma",
+                cast: "Salman Khan, Shah Rukh Khan",
+                genre: "Action",
+                trailer: "https://www.youtube.com/embed/example5",
+                badge: "Upcoming"
+            },
+            {
+                id: 6,
+                title: "KGF: Chapter 3",
+                poster: "https://via.placeholder.com/220x300?text=KGF+3",
+                release: "Aug 30, 2025",
+                rating: 0,
+                director: "Prashanth Neel",
+                cast: "Yash, Sanjay Dutt",
+                genre: "Action",
+                trailer: "https://www.youtube.com/embed/example6",
+                badge: "Upcoming"
+            },
+            {
+                id: 7,
+                title: "Pushpa 2: The Rule",
+                poster: "https://via.placeholder.com/220x300?text=Pushpa+2",
+                release: "Dec 6, 2025",
+                rating: 0,
+                director: "Sukumar",
+                cast: "Allu Arjun, Rashmika Mandanna",
+                genre: "Action",
+                trailer: "https://www.youtube.com/embed/example7",
+                badge: "Upcoming"
+            },
+            {
+                id: 8,
+                title: "Jawan 2",
+                poster: "https://via.placeholder.com/220x300?text=Jawan+2",
+                release: "Sep 5, 2025",
+                rating: 0,
+                director: "Atlee",
+                cast: "Shah Rukh Khan, Nayanthara",
+                genre: "Action",
+                trailer: "https://www.youtube.com/embed/example8",
+                badge: "Upcoming"
+            }
+        ];
+
+        // DOM Elements
+        const moviesGrid = document.getElementById('moviesGrid');
+        const hamburger = document.querySelector('.hamburger');
+        const mainNav = document.querySelector('.main-nav');
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const trailerBtns = document.querySelectorAll('.watch-trailer');
+        const trailerModal = document.getElementById('trailerModal');
+        const trailerFrame = document.getElementById('trailerFrame');
+        const closeModalBtn = document.querySelector('.close-modal');
+
+        // Generate Movie Cards
+        function generateMovieCards() {
+            moviesGrid.innerHTML = '';
+            
+            moviesData.forEach(movie => {
+                const movieCard = document.createElement('div');
+                movieCard.className = 'movie-card';
+                movieCard.innerHTML = `
+                    <img src="${movie.poster}" alt="${movie.title}" class="movie-poster">
+                    ${movie.badge ? `<div class="movie-badge">${movie.badge}</div>` : ''}
+                    <button class="watchlist-btn" data-id="${movie.id}">
+                        <i class="material-icons">favorite_border</i>
+                    </button>
+                    <div class="movie-info">
+                        <h3 class="movie-title">${movie.title}</h3>
+                        <div class="movie-meta">
+                            <span>${movie.release}</span>
+                            <span class="movie-rating">
+                                <i class="material-icons">star</i>
+                                ${movie.rating > 0 ? movie.rating : 'Coming Soon'}
+                            </span>
+                        </div>
+                        <p class="movie-director">Dir: ${movie.director}</p>
+                        <p class="movie-cast">Cast: ${movie.cast}</p>
+                        <button class="btn btn-outline watch-trailer" data-trailer="${movie.trailer}" style="width: 100%; margin-top: 10px;">
+                            <i class="material-icons">play_arrow</i> Trailer
+                        </button>
+                    </div>
+                `;
+                moviesGrid.appendChild(movieCard);
+            });
+        }
+
+        // Initialize Carousel
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            heroSlides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            currentSlide = (index + heroSlides.length) % heroSlides.length;
+            heroSlides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        // Auto slide every 5 seconds
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        // Pause on hover
+        const heroBanner = document.querySelector('.hero-banner');
+        heroBanner.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        heroBanner.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+
+        // Indicator click
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                showSlide(index);
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+        });
+
+        // Mobile Navigation
+        hamburger.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        // Watchlist Functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.watchlist-btn')) {
+                const btn = e.target.closest('.watchlist-btn');
+                const icon = btn.querySelector('i');
+                
+                btn.classList.toggle('active');
+                if (btn.classList.contains('active')) {
+                    icon.textContent = 'favorite';
+                    // In real app, save to localStorage or send to server
+                } else {
+                    icon.textContent = 'favorite_border';
+                }
+            }
+        });
+
+        // Trailer Modal
+        function openTrailerModal(trailerUrl) {
+            trailerFrame.src = trailerUrl;
+            trailerModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeTrailerModal() {
+            trailerFrame.src = '';
+            trailerModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('watch-trailer')) {
+                e.preventDefault();
+                const trailerUrl = e.target.getAttribute('data-trailer');
+                openTrailerModal(trailerUrl);
+            }
+            
+            if (e.target === trailerModal || e.target.classList.contains('close-modal')) {
+                closeTrailerModal();
+            }
+        });
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && trailerModal.style.display === 'block') {
+                closeTrailerModal();
+            }
+        });
+
+        // Initialize
+        generateMovieCards();
+        showSlide(0);
+    </script>
+</body>
+</html>
